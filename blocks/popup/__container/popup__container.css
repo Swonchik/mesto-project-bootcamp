@@ -1,8 +1,10 @@
 .popup__container {
     margin: 0;
-    position: absolute;
+    position: relative;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    
 }
 
 @media (max-width: 620px) {
