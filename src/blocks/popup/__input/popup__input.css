@@ -10,7 +10,7 @@
     width: 358px;
     padding-bottom: 13px;
     max-height: 27px;
-    margin-bottom: 23px;
+    margin-bottom: 5px;
 }
 
 @media (max-width: 620px) {
@@ -18,3 +18,5 @@
         width: 238px;
     }
  }
+
+

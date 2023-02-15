@@ -2,13 +2,14 @@
     display: flex;
     margin-top: 45px;
     margin-bottom: 40px;
-    max-width: 880px;
+    width: 100%;
     border-bottom: 1px solid rgb(84, 84, 84, 0.7);
 }
+
+
 
 @media (max-width: 350px) {
     .header {
         margin-top: 28px;
-        min-width: 319px;
     }
 }
