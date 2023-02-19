@@ -1,5 +1,5 @@
-import { closePopup } from "./utils";
-import { editProfile, postCard } from "./api";
+import { closePopup, renderButton } from "./utils";
+import { editProfile, postCard, editAvatar } from "./api";
 import { addPopup, getCardElement, } from "./card";
 // Обработка формы
 export const editPopup = document.querySelector('.popup-profile');
@@ -11,10 +11,17 @@ export const inputProfession = profileFormElement.querySelector('.popup__input_t
 export const postForm = document.querySelector('#post-form');
 export const avatarForm = document.querySelector('#avatar-form')
 export const avatarPopup = document.querySelector('#popup-avatar')
-
+const saveButtonProfile = profileFormElement.querySelector('.popup__button-submit')
+const saveButtonAddCard = postForm.querySelector('.popup__button-submit')
+const saveButtonAvatar = avatarForm.querySelector('.popup__button-submit')
 
 export function handleFormSubmit(evt) {
     evt.preventDefault();
+    renderButton ({
+      button: saveButtonProfile,
+      text: 'Сохранение...',
+      disabled: true
+  })
     editProfile (inputFullName.value, inputProfession.value)
     .then(function(){
         profileName.textContent = inputFullName.value;
@@ -26,26 +33,76 @@ export function handleFormSubmit(evt) {
     .catch(function(){
         console.log(error);
     })
+    .finally (function(){
+      renderButton ({
+          button: saveButtonProfile,
+          text: 'Сохранить',
+          disabled: false
+      })
+  })
 }
 
 
 
 const elements = document.querySelector('.elements');
 //  Добавление карточки
-export function postFormSubmit(e, userID) {
-    e.preventDefault();
+export function postFormSubmit(userID, event) {
+    event.preventDefault();
+    renderButton ({
+      button: saveButtonAddCard,
+      text: 'Сохранение...',
+      disabled: true
+  })
     const name = document.querySelector('.form__input_type_photo').value;
     const link = document.querySelector('.form__input_type_url').value;
   postCard(name, link)
   .then (function(card){
-    debugger;
+
       elements.prepend(getCardElement (card, userID))
-      e.target.reset();
+      event.target.reset();
   })
   .then(function(){
     closePopup(addPopup);
   })
   .catch((error) => {
     console.log(error);
-  });
+  })
+  .finally (function(){
+    renderButton ({
+        button: saveButtonAddCard,
+        text: 'Сохранить',
+        disabled: false
+    })
+ })
+}
+// редактор аватара
+const avatarProfile = document.querySelector('.profile__avatar')
+const avatarLinkInput = avatarForm.querySelector('.popup__input_type_avatar')
+export function editProfileAvatar (e) {
+  e.preventDefault();
+  renderButton ({
+    button: saveButtonAvatar,
+    text: 'Сохранение...',
+    disabled: true
+  })
+  editAvatar (avatarLinkInput.value, e)
+    .then(function(data){
+      avatarProfile.src = data.avatar;
+        e.target.reset();
+        console.log('ok');
+    })
+    .then(function(){
+        closePopup(avatarPopup);
+    })
+    .catch((error) => {
+      console.log(error);
+    })
+    .finally (function(){
+      renderButton ({
+        button: saveButtonAvatar,
+        text: 'Сохранить',
+        disabled: false
+      })
+    })
+
 }

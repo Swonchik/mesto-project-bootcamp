@@ -1,4 +1,4 @@
-import {openedBigPopup, closePopup} from './utils'
+import {openBigPopup, closePopup} from './utils'
 import { deleteCard, updateLike } from './api';
 export const addPopup = document.querySelector('#popup-add')
 
@@ -78,7 +78,7 @@ function clickImage(data) {
   bigPopupImg.src = data.link;
   bigPopupImg.alt = data.name;
   bigPopupTitle.textContent = data.name;
-  openedBigPopup(bigPopup);
+  openBigPopup(bigPopup);
 }
 
 
