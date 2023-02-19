@@ -1,11 +1,11 @@
 import { addPopup, getCardElement,} from './components/card.js';
 import {handleFormSubmit, profileName, profileProfession,profileFormElement, inputFullName, 
-inputProfession,editPopup,postForm,avatarForm, avatarPopup, postFormSubmit} from './components/modal.js';
+inputProfession,editPopup,postForm, avatarPopup, postFormSubmit} from './components/modal.js';
 import { openedPopup, closePopup,} from './components/utils.js';
 import {} from './components/validate.js';
-import {getProfileInfo, getAllCards, postCard} from './components/api.js'
+import {getProfileInfo, getAllCards,} from './components/api.js'
 import './styles/index.css';
-
+let userID = null;
 const editProfileAvatar = document.querySelector('.profile__button-avatar')
 const profileAvatar = document.querySelector('.profile__avatar')
 const elements = document.querySelector('.elements');
@@ -19,7 +19,7 @@ const closeBigButton = bigPopup.querySelector('.popup__button-close')
 const addButton = document.querySelector('.profile__button-add');
 const closeAddButton = addPopup.querySelector('.popup__button-close')
 
-export let userID = null;
+
 
 
 // открытие профиля
@@ -38,6 +38,7 @@ editProfileAvatar.addEventListener('click', function() {
 
 // avatarForm.addEventListener('submit',)
 profileFormElement.addEventListener('submit', handleFormSubmit);
+
 postForm.addEventListener('submit', postFormSubmit);
 
 // закрытие профиля
@@ -62,7 +63,7 @@ bigPopup.addEventListener('click', (e) => {
 });
 
 
-export function renderCards (data){
+function renderCards (data){
   data.forEach(function(dataCard){
       const arrayCardImg = getCardElement(dataCard, userID);
       elements.append(arrayCardImg);
@@ -83,7 +84,7 @@ Promise.all([getProfileInfo (), getAllCards ()])
     renderCards(cardsData)
 
   })
-  .catch((err) => {
-    console.log(err);
+  .catch((error) => {
+    console.log(error);
   });
 

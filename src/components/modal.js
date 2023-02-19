@@ -1,6 +1,6 @@
 import { closePopup } from "./utils";
-import { editProfile, editAvatar, postCard } from "./api";
-import { addPopup, getCardElement, userID } from "./card";
+import { editProfile, postCard } from "./api";
+import { addPopup, getCardElement, } from "./card";
 // Обработка формы
 export const editPopup = document.querySelector('.popup-profile');
 export const profileName = document.querySelector('.profile__title');
@@ -32,19 +32,20 @@ export function handleFormSubmit(evt) {
 
 const elements = document.querySelector('.elements');
 //  Добавление карточки
-export function postFormSubmit(e) {
+export function postFormSubmit(e, userID) {
     e.preventDefault();
     const name = document.querySelector('.form__input_type_photo').value;
     const link = document.querySelector('.form__input_type_url').value;
   postCard(name, link)
   .then (function(card){
+    debugger;
       elements.prepend(getCardElement (card, userID))
       e.target.reset();
   })
   .then(function(){
     closePopup(addPopup);
   })
-  .catch(function(){
+  .catch((error) => {
     console.log(error);
   });
-  }
+}

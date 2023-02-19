@@ -1,13 +1,10 @@
 import {openedBigPopup, closePopup} from './utils'
 import { deleteCard, updateLike } from './api';
 export const addPopup = document.querySelector('#popup-add')
-export let userID = null;
+
+
 
 const elementTemplate = document.getElementById('element-template').content;
-
-
-
-
 
 function isLiked (card, userID){
   return card.likes.some(function(object){
@@ -25,7 +22,6 @@ function updateLikeView(card, userID, buttonLike, scoreLike){
 }
 
 export function getCardElement (card, userID) {
-// console.log(userID);
 // console.log(card.likes);
 const  cardID = card._id;
   const element = elementTemplate.querySelector('.element').cloneNode(true);
@@ -40,14 +36,14 @@ const  cardID = card._id;
   updateLikeView(card, userID, buttonLike, scoreLike)
 
   //  лайк карточки
-  buttonLike.addEventListener('click',   function(){
+  buttonLike.addEventListener('click', function(){
     updateLike(cardID, isLiked(card, userID))
         .then(function(data){  
             card.likes = data.likes;
             updateLikeView(card, userID, buttonLike, scoreLike)
         })
-        .catch (function (){
-            console.log(erorr);
+        .catch ((error) => {
+          console.log(error);
         }) 
   })
 
@@ -61,8 +57,8 @@ const  cardID = card._id;
           element.remove();
           console.log(`Карточка с id ${card._id} удалена`)
         })
-        .catch (function (){
-          console.log(err);
+        .catch ((error) => {
+          console.log(error);
         })         
     })
   } else {
@@ -84,6 +80,5 @@ function clickImage(data) {
   bigPopupTitle.textContent = data.name;
   openedBigPopup(bigPopup);
 }
-
 
 
