@@ -10,13 +10,13 @@
 .profile__button-edit{align-self:end;background-color:transparent;background-image:url(8667ac4a523e8fc42e59.svg);background-position:50%;background-repeat:no-repeat;border:1px solid #fff;cursor:pointer;height:24px;margin-bottom:10px;width:24px}.profile__button-edit:hover{opacity:.6}@media (max-width:1000px){.profile__button-edit{height:18px;margin-bottom:5px;margin-left:3px;width:18px}}
 .profile__container{display:flex;justify-content:center}@media (max-width:1000px){.profile__container{align-items:center;flex-direction:column;margin-bottom:36px}}
 .profile__info{display:grid;gap:16px 18px;grid-template-columns:1fr 24px}@media (max-width:1000px){.profile__info{align-items:center;gap:7px 10px;grid-template-columns:210px 18px;justify-content:center}}
-.profile__subtitle{font-family:Inter,Arial,sans-serif;font-size:18px;font-style:normal;font-weight:400;line-height:22px;margin:0;max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}@media (max-width:1000px){.profile__subtitle{font-size:14px;line-height:17px;margin-left:17px;text-align:center}}
-.profile__title{align-self:end;font-family:Inter,Arial,sans-serif;font-size:42px;font-style:normal;font-weight:500;line-height:48px;margin:0;max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}@media (max-width:1000px){.profile__title{font-size:27px;line-height:33px;text-align:end}}
+.profile__subtitle{font-family:Inter,Arial,sans-serif;font-size:18px;font-style:normal;font-weight:400;line-height:22px;margin:0;max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}@media (max-width:1000px){.profile__subtitle{font-size:14px;line-height:17px;text-align:center}}
+.profile__title{align-self:end;font-family:Inter,Arial,sans-serif;font-size:42px;font-style:normal;font-weight:500;line-height:48px;margin:0;max-width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}@media (max-width:1000px){.profile__title{font-size:27px;line-height:33px;text-align:center}}
 .profile__item{display:grid;margin-top:29px;padding-right:18px}
 .element__info{align-items:center;display:flex;justify-content:space-between}
 .elements{display:grid;gap:20px 17px;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);margin-bottom:67px}@media (max-width:1000px){.elements{gap:20px;grid-template-columns:repeat(2,1fr);grid-template-rows:repeat(3,1fr)}}@media (max-width:620px){.elements{grid-template-columns:1fr;grid-template-rows:repeat(6,1fr);margin-bottom:48px}}
 .element{background-color:#fff;border-radius:10px 10px 10px 10px;max-width:282px}
-.element__button-like{background-color:transparent;background-image:url(87ed371465c7a6a1cd01.svg);background-position:50%;background-repeat:no-repeat;border:none;cursor:pointer;flex-shrink:0;height:19px;margin-right:20px;width:22px}.element__button-like:hover{opacity:.5}
+.element__button-like{background-color:transparent;background-image:url(87ed371465c7a6a1cd01.svg);background-position:50%;background-repeat:no-repeat;border:none;cursor:pointer;flex-shrink:0;height:19px;width:22px}.element__button-like:hover{opacity:.5}
 .element__button-like_active{background-image:url(fe17a515669479b1e649.svg)}
 .element__button-delete{background-color:transparent;background-image:url(cbc09a894bdd4c956365.svg);background-position:50%;background-repeat:no-repeat;border-color:transparent;cursor:pointer;height:19px;position:absolute;right:20px;top:20px;width:18px}.element__button-delete:hover{opacity:.5}
 .element__photo{border-radius:10px 10px 0 0;height:282px;-o-object-fit:cover;object-fit:cover;width:282px}
@@ -38,4 +38,8 @@
 .popup__input-error{color:red;font-family:Inter;font-size:12px;font-style:normal;font-weight:400;line-height:15px;margin-bottom:13px}
 .popup__input_invalid{border-bottom:1px solid red}
 .popup__button-submit_invalid{background-color:#fff;border:1px solid #c4c4c4;color:#c4c4c4}
+.profile__button-avatar{background:#000 url(8667ac4a523e8fc42e59.svg) no-repeat 50%;border:none;border-radius:100%;height:120px;opacity:0;padding:0;position:absolute;width:120px}.profile__button-avatar:hover{cursor:pointer;opacity:.8}
+.element__container-like{align-items:center;display:flex;flex-direction:column;margin-right:20px}
+.element__like-score{color:#000;margin:3px 0 0}
+.profile__content{display:flex}
 
