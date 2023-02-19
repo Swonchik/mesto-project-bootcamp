@@ -1,5 +1,3 @@
-// import { closebByEscape} from ;
-
 export function openedPopup(element) {
     element.classList.add('popup_opened');
 }
