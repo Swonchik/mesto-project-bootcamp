@@ -9,7 +9,7 @@ function hideError(inputElement, errorElement, object) {
   errorElement.textContent = "";
 }
 
-function toggleButton(buttonElement, isActive, object) {
+export function toggleButton(buttonElement, isActive, object) {
   if(isActive) {
     buttonElement.disabled = false;
     buttonElement.classList.remove(object.inactiveButtonClass)
@@ -37,8 +37,9 @@ function setEventListener(formElement, object) {
   
   toggleButton(submitButtonElement, formElement.checkValidity(), object);
 
-  formElement.addEventListener('submit', (e) => {
-    e.preventDefault()
+  formElement.addEventListener('reset', () => {
+    setTimeout(() => {
+      toggleButton(submitButtonElement, formElement.checkValidity(), object), 0 })
   });
 
   [...inputList].forEach((inputItem) => {

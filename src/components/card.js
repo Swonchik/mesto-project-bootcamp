@@ -1,4 +1,4 @@
-import {openBigPopup, closePopup} from './utils'
+import {openedPopup, closePopup} from './utils'
 import { deleteCard, updateLike } from './api';
 export const addPopup = document.querySelector('#popup-add')
 
@@ -22,7 +22,7 @@ function updateLikeView(card, userID, buttonLike, scoreLike){
 }
 
 export function getCardElement (card, userID) {
-// console.log(card.likes);
+console.log(card.likes);
 const  cardID = card._id;
   const element = elementTemplate.querySelector('.element').cloneNode(true);
   const elementPhoto = element.querySelector('.element__photo');
@@ -78,7 +78,7 @@ function clickImage(data) {
   bigPopupImg.src = data.link;
   bigPopupImg.alt = data.name;
   bigPopupTitle.textContent = data.name;
-  openBigPopup(bigPopup);
+  openedPopup(bigPopup);
 }
 
 

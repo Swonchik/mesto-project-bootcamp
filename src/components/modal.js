@@ -11,9 +11,12 @@ export const inputProfession = profileFormElement.querySelector('.popup__input_t
 export const postForm = document.querySelector('#post-form');
 export const avatarForm = document.querySelector('#avatar-form')
 export const avatarPopup = document.querySelector('#popup-avatar')
-const saveButtonProfile = profileFormElement.querySelector('.popup__button-submit')
-const saveButtonAddCard = postForm.querySelector('.popup__button-submit')
-const saveButtonAvatar = avatarForm.querySelector('.popup__button-submit')
+export const saveButtonProfile = profileFormElement.querySelector('.popup__button-submit')
+export const saveButtonAddCard = postForm.querySelector('.popup__button-submit')
+export const saveButtonAvatar = avatarForm.querySelector('.popup__button-submit')
+const name = postForm.querySelector('.form__input_type_photo');
+const link = postForm.querySelector('.form__input_type_url');
+
 
 export function handleFormSubmit(evt) {
     evt.preventDefault();
@@ -34,6 +37,7 @@ export function handleFormSubmit(evt) {
         console.log(error);
     })
     .finally (function(){
+      
       renderButton ({
           button: saveButtonProfile,
           text: 'Сохранить',
@@ -41,8 +45,6 @@ export function handleFormSubmit(evt) {
       })
   })
 }
-
-
 
 const elements = document.querySelector('.elements');
 //  Добавление карточки
@@ -53,9 +55,7 @@ export function postFormSubmit(userID, event) {
       text: 'Сохранение...',
       disabled: true
   })
-    const name = document.querySelector('.form__input_type_photo').value;
-    const link = document.querySelector('.form__input_type_url').value;
-  postCard(name, link)
+  postCard(name.value, link.value)
   .then (function(card){
 
       elements.prepend(getCardElement (card, userID))
@@ -92,12 +92,14 @@ export function editProfileAvatar (e) {
         console.log('ok');
     })
     .then(function(){
+      
         closePopup(avatarPopup);
     })
     .catch((error) => {
       console.log(error);
     })
     .finally (function(){
+      
       renderButton ({
         button: saveButtonAvatar,
         text: 'Сохранить',

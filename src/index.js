@@ -21,7 +21,7 @@ const closeAddButton = addPopup.querySelector('.popup__button-close')
 // форма профиля
 profileFormElement.addEventListener('submit', handleFormSubmit);
 // форма картинки
-postForm.addEventListener('submit', function(){
+postForm.addEventListener('submit', (event) =>{
   postFormSubmit(userID, event)
 });
 // форма аватара
@@ -35,11 +35,13 @@ editButton.addEventListener('click', () => {
 });
 // открытие формы
 addButton.addEventListener('click', function () {
-  openedPopup(addPopup);
+  openedPopup(addPopup); 
+
 });
 // Открытие аватара
 editAvatar.addEventListener('click', function() {
-  openedPopup(avatarPopup)
+  openedPopup(avatarPopup);
+
 })
 
 // закрытие профиля
@@ -59,10 +61,8 @@ closeBigButton.addEventListener('click', function () {
   closePopup(bigPopup);
 });
 // закрытие оверлея
-bigPopup.addEventListener('click', (e) => {
-  if (e.target.classList.contains('popup_opened')) {
+bigPopup.addEventListener('click', function () {
     closePopup(bigPopup);
-  }
 });
 
 
